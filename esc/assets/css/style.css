@@ -6,6 +6,18 @@
 */
 
 /*--------------------------------------------------------------
+# CSS Variables - Tema Nota R$ 200 (Lobo-guará)
+--------------------------------------------------------------*/
+:root {
+  --primary-orange: #D97B2E;      /* Laranja do lobo */
+  --secondary-orange: #E89644;    /* Laranja claro */
+  --accent-brown: #8B5A3C;        /* Marrom terra */
+  --gold: #C09F5A;                /* Dourado quente */
+  --light-orange: #FDF3E7;        /* Bege claro */
+  --dark-text: #4A2C1A;           /* Marrom escuro */
+}
+
+/*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
@@ -14,11 +26,11 @@ body {
 }
 
 a {
-  color: #67b0d1;
+  color: var(--primary-orange);
 }
 
 a:hover {
-  color: #8ec4dd;
+  color: var(--secondary-orange);
   text-decoration: none;
 }
 
@@ -37,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50px;
   right: 15px;
   bottom: 15px;
-  background: #67b0d1;
+  background: var(--primary-orange);
   color: #fff;
   transition: display 0.5s ease-in-out;
   z-index: 99999;
@@ -52,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .back-to-top:hover {
   color: #fff;
-  background: #86c0da;
+  background: var(--secondary-orange);
   transition: background 0.2s ease-in-out;
 }
 
@@ -68,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
   transition: all 0.5s;
   padding: 15px 0;
-  background: rgba(38, 55, 70, 0.9);
+  background: var(--dark-text);
 }
 
 #header.header-transparent {
@@ -76,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header.header-scrolled {
-  background: rgba(38, 55, 70, 0.9);
+  background: var(--dark-text);
   padding: 0;
 }
 
@@ -121,7 +133,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   white-space: nowrap;
   float: left;
-  background: rgba(38, 55, 70, 0.4);
+  background: rgba(217, 123, 46, 0.4);
 }
 
 .nav-menu a {
@@ -183,11 +195,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   font-weight: 500;
   text-transform: none;
-  color: #25607a;
+  color: var(--dark-text);
 }
 
 .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
-  color: #67b0d1;
+  color: var(--primary-orange);
 }
 
 .nav-menu .drop-down > a:after {
@@ -426,7 +438,7 @@ section {
 }
 
 .section-bg {
-  background-color: #f4f9fc;
+  background-color: var(--light-orange);
 }
 
 .section-title {
@@ -439,7 +451,7 @@ section {
   font-weight: bold;
   position: relative;
   margin-bottom: 30px;
-  color: #2f4d5a;
+  color: var(--dark-text);
   z-index: 2;
 }
 
@@ -627,7 +639,7 @@ section {
 }
 
 .services .icon-box:hover::before {
-  background: #67b0d1;
+  background: var(--primary-orange);
   top: 0;
   border-radius: 0px;
 }
@@ -639,7 +651,7 @@ section {
 .services .icon i {
   font-size: 48px;
   line-height: 1;
-  color: #67b0d1;
+  color: var(--primary-orange);
   transition: all 0.3s ease-in-out;
 }
 
@@ -682,7 +694,7 @@ section {
 .counts .count-box i {
   display: block;
   font-size: 44px;
-  color: #67b0d1;
+  color: var(--primary-orange);
   float: left;
 }
 
@@ -691,7 +703,7 @@ section {
   line-height: 40px;
   display: block;
   font-weight: 700;
-  color: #2f4d5a;
+  color: var(--dark-text);
   margin-left: 60px;
 }
 
@@ -721,7 +733,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(38, 55, 70, 0.8), rgba(38, 55, 70, 0.8)), url("../img/BeiraMar.jpg") fixed center center;
+  background: linear-gradient(rgba(74, 44, 26, 0.8), rgba(74, 44, 26, 0.8)), url("../img/BeiraMar.jpg") fixed center center;
   background-size: cover;
   padding: 25px 0;
 }
@@ -786,7 +798,7 @@ section {
 }
 
 .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
-  color: #67b0d1;
+  color: var(--primary-orange);
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -1133,10 +1145,10 @@ section {
 
 .contact .info-box i {
   font-size: 32px;
-  color: #67b0d1;
+  color: var(--primary-orange);
   border-radius: 50%;
   padding: 8px;
-  border: 2px dotted #f0f7fa;
+  border: 2px dotted var(--light-orange);
 }
 
 .contact .info-box h3 {
@@ -1228,7 +1240,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"] {
-  background: #67b0d1;
+  background: var(--primary-orange);
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -1236,7 +1248,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-  background: #8ec4dd;
+  background: var(--secondary-orange);
 }
 
 @-webkit-keyframes animate-loading {
@@ -1261,7 +1273,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #263f49;
+  background: var(--dark-text);
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
