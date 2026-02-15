@@ -11,6 +11,16 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
+  /* Ocean gradient background - from light sky blue to deep ocean blue */
+  background: linear-gradient(180deg, 
+    #87CEEB 0%,      /* Sky blue at top */
+    #4A90E2 25%,     /* Light ocean blue */
+    #2E5C8A 50%,     /* Medium ocean blue */
+    #1B3A5F 75%,     /* Deep ocean blue */
+    #0D1F3C 100%     /* Deep sea blue at bottom */
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 a {
@@ -25,6 +35,57 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Dosis", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Decorative Images
+--------------------------------------------------------------*/
+.decorative-img {
+  position: fixed;
+  width: 200px;
+  height: auto;
+  z-index: 1;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.decorative-img:hover {
+  opacity: 0.9;
+}
+
+.decorative-left {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.decorative-right {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Hide decorative images on tablets */
+@media (max-width: 1199px) {
+  .decorative-img {
+    width: 150px;
+    opacity: 0.5;
+  }
+  
+  .decorative-left {
+    left: 10px;
+  }
+  
+  .decorative-right {
+    right: 10px;
+  }
+}
+
+/* Hide decorative images on mobile */
+@media (max-width: 767px) {
+  .decorative-img {
+    display: none;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -338,10 +399,21 @@ h1, h2, h3, h4, h5, h6 {
 section {
   padding: 60px 0;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .section-bg {
-  background-color: #f4fbfe;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
+
+@media (max-width: 767px) {
+  .section-bg {
+    margin: 10px;
+  }
 }
 
 .section-title {
@@ -1171,149 +1243,213 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #fff;
-  padding: 0 0 30px 0;
-  color: #444444;
+  background: linear-gradient(135deg, #1B3A5F 0%, #0D1F3C 100%);
+  color: #fff;
   font-size: 14px;
-  background: #ebf7fc;
+  position: relative;
+  z-index: 2;
 }
-#footer .footer-newsletter {
-  padding: 50px 0;
-  background: #f0f9fd;
-  text-align: center;
-  font-size: 15px;
+
+#footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #49b5e7, #76c7ed, #49b5e7);
 }
-#footer .footer-newsletter h4 {
-  font-size: 24px;
+
+#footer .footer-top {
+  padding: 60px 0 30px 0;
+  background: transparent;
+}
+
+#footer .footer-top .footer-info h3 {
+  font-size: 28px;
   margin: 0 0 20px 0;
   padding: 0;
   line-height: 1;
-  font-weight: 600;
-  color: #0f394c;
-}
-#footer .footer-newsletter form {
-  margin-top: 30px;
-  background: #fff;
-  padding: 6px 10px;
-  position: relative;
-  border-radius: 4px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  text-align: left;
-}
-#footer .footer-newsletter form input[type=email] {
-  border: 0;
-  padding: 4px 8px;
-  width: calc(100% - 100px);
-}
-#footer .footer-newsletter form input[type=submit] {
-  position: absolute;
-  top: 0;
-  right: -2px;
-  bottom: 0;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 0 20px;
-  background: #49b5e7;
-  color: #fff;
-  transition: 0.3s;
-  border-radius: 0 4px 4px 0;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
-#footer .footer-newsletter form input[type=submit]:hover {
-  background: #1da2e0;
-}
-#footer .footer-top {
-  padding: 60px 0 30px 0;
-  background: #fff;
-}
-#footer .footer-top .footer-contact {
-  margin-bottom: 30px;
-}
-#footer .footer-top .footer-contact h4 {
-  font-size: 22px;
-  margin: 0 0 30px 0;
-  padding: 2px 0 2px 0;
-  line-height: 1;
   font-weight: 700;
+  color: #fff;
 }
-#footer .footer-top .footer-contact p {
+
+#footer .footer-top .footer-info p {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Lato", sans-serif;
-  color: #777777;
+  font-family: "Raleway", sans-serif;
+  color: rgba(255, 255, 255, 0.8);
 }
+
+#footer .footer-top .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: rgba(73, 181, 231, 0.2);
+  color: #fff;
+  line-height: 1;
+  padding: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  transition: 0.3s;
+  border: 2px solid rgba(73, 181, 231, 0.5);
+}
+
+#footer .footer-top .social-links a:hover {
+  background: #49b5e7;
+  border-color: #49b5e7;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-3px);
+}
+
 #footer .footer-top h4 {
-  font-size: 16px;
-  font-weight: bold;
-  color: #0f394c;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
   position: relative;
   padding-bottom: 12px;
+  margin-bottom: 20px;
 }
+
+#footer .footer-top h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background: #49b5e7;
+}
+
 #footer .footer-top .footer-links {
   margin-bottom: 30px;
 }
+
 #footer .footer-top .footer-links ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 #footer .footer-top .footer-links ul i {
-  padding-right: 2px;
+  padding-right: 8px;
   color: #49b5e7;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1;
 }
+
 #footer .footer-top .footer-links ul li {
-  padding: 10px 0;
+  padding: 8px 0;
   display: flex;
   align-items: center;
 }
+
 #footer .footer-top .footer-links ul li:first-child {
   padding-top: 0;
 }
+
 #footer .footer-top .footer-links ul a {
-  color: #777777;
+  color: rgba(255, 255, 255, 0.8);
   transition: 0.3s;
   display: inline-block;
-  line-height: 1;
-}
-#footer .footer-top .footer-links ul a:hover {
+  line-height: 1.5;
   text-decoration: none;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  color: #49b5e7;
+  padding-left: 5px;
+}
+
+#footer .footer-top .footer-contact {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-contact p {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#footer .footer-top .footer-contact strong {
+  color: #49b5e7;
+  font-weight: 600;
+}
+
+#footer .footer-top .footer-contact a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#footer .footer-top .footer-contact a:hover {
   color: #49b5e7;
 }
-#footer .footer-top .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #49b5e7;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
-  border-radius: 4px;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
+
+#footer .footer-bottom {
+  padding: 25px 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-#footer .footer-top .social-links a:hover {
-  background: #1da2e0;
-  color: #fff;
-  text-decoration: none;
+
+#footer .footer-bottom .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
+
 #footer .copyright {
-  float: left;
-  color: #0f394c;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
 }
+
 #footer .credits {
-  float: right;
-  font-size: 13px;
-  color: #0f394c;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
 }
+
+#footer .credits i {
+  color: #ff6b6b;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Footer */
+@media (max-width: 991px) {
+  #footer .footer-top .footer-info,
+  #footer .footer-top .footer-links,
+  #footer .footer-top .footer-contact {
+    margin-bottom: 40px;
+  }
+}
+
 @media (max-width: 575px) {
-  #footer .copyright, #footer .credits {
-    float: none;
+  #footer .footer-bottom .container {
+    flex-direction: column;
     text-align: center;
+  }
+  
+  #footer .copyright,
+  #footer .credits {
+    margin: 5px 0;
+  }
+  
+  #footer .footer-top {
+    padding: 40px 0 20px 0;
   }
 }
