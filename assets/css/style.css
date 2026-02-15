@@ -274,7 +274,9 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: #f9f9f9;
+  background: linear-gradient(rgba(73, 181, 231, 0.7), rgba(73, 181, 231, 0.7)), url("../img/hero-texture.jpg") center center;
+  background-size: cover;
+  position: relative;
 }
 #hero .container {
   padding-top: 84px;
