@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Páginas principais
+Allow: /fomento/
+Allow: /esc/
+
+Sitemap: https://www.capitalscfomento.com.br/sitemap.xml
